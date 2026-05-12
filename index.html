@@ -1,1 +1,148 @@
 
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集導覽入口</title>
+    <style>
+        /* CSS3 樣式設計 */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --btn-color-1: #4a90e2;
+            --btn-color-2: #50e3c2;
+            --btn-color-3: #f5a623;
+            --text-dark: #2d3436;
+            --bg-light: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .nav-button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* 個別按鈕顏色 */
+        .btn-1 { background-color: var(--btn-color-1); }
+        .btn-2 { background-color: var(--btn-color-2); }
+        .btn-3 { background-color: var(--btn-color-3); }
+
+        /* 懸停效果 */
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            filter: brightness(1.05);
+        }
+
+        .nav-button:active {
+            transform: translateY(0);
+        }
+
+        /* 底部資訊 */
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        /* 響應式微調 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>專案作品導覽</h1>
+        
+        <div class="button-group">
+            <!-- 已經將連結名稱從 123456 修改為 西洋棋單人棋模擬 -->
+            <button class="nav-button btn-1" id="link1">西洋棋單人棋模擬</button>
+            <button class="nav-button btn-2" id="link2">AI 照片展示</button>
+            <button class="nav-button btn-3" id="link3">Youbike 系統</button>
+        </div>
+
+        <div class="footer">
+            點擊按鈕開啟 GitHub 原始碼頁面
+        </div>
+    </div>
+
+    <script>
+        // Vanilla JavaScript 邏輯處理
+        document.addEventListener('DOMContentLoaded', () => {
+            const urls = {
+                link1: 'https://github.com/d11431502-prog/1502.github.io/blob/main/123456.html',
+                link2: 'https://github.com/d11431502-prog/1502.github.io/blob/main/AI.photo.html',
+                link3: 'https://github.com/d11431502-prog/1502.github.io/blob/main/Youbike.html'
+            };
+
+            // 為所有按鈕綁定點擊事件
+            Object.keys(urls).forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        // 在新分頁開啟連結
+                        window.open(urls[id], '_blank');
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
